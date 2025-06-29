@@ -17,4 +17,14 @@ class Invoice extends Model
     {
         return $this->belongsTo(Customer::class);
     }
+    
+    public function pdf()
+    {
+        return $this->hasOne(\App\Models\InvoicePdf::class);
+    }
+    
+    public function logs()
+    {
+        return $this->hasMany(\App\Models\InvoiceLog::class);
+    }
 }

@@ -24,6 +24,10 @@
                 <x-nav-link :href="route('invoices.index')" :active="request()->routeIs('invoices.index')">
                     {{ __('Invoices') }}
                 </x-nav-link>
+
+                <x-nav-link :href="route('invoice.mail_logs')" :active="request()->routeIs('invoice.mail_logs')">
+                    {{ __('Sent Mails') }}
+                </x-nav-link>
             </div>
 
             <!-- Settings Dropdown -->

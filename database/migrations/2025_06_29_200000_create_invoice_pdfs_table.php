@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('invoices', function (Blueprint $table) {
+        Schema::create('invoice_pdfs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')->constrained('customers')->onDelete('cascade');
-            $table->decimal('amount', 10, 2);
-            $table->string('description')->nullable();
-            $table->boolean('mail_sent')->default(0)->comment('1 = sent, 0 = not sent');
+            $table->foreignId('invoice_id')->constrained('invoices')->onDelete('cascade');
+            $table->string('pdf_path');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('invoices');
+        Schema::dropIfExists('invoice_pdfs');
     }
 };
